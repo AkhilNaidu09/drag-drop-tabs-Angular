@@ -1,0 +1,21 @@
+<hello name="{{ name }}"></hello>
+<p>
+  Start editing to see some magic happen :)
+</p>
+
+  <tabset dndDropzone (dndDragover)="onDragover($event)" #someTabs>
+    <tab *ngFor="let tab of tabsList;let index=index;">
+
+      <ng-template tabHeading>
+        <div id="tabIndex_{{index}}" [dndDraggable]="draggable.data" [dndEffectAllowed]="draggable.effectAllowed" [dndDisableIf]="draggable.disable"
+          (dndMoved)="onDraggableMoved($event)" (dndEnd)="onDragEnd($event)">
+
+          <i class="fa fa-star"></i>{{tab.title}}
+        </div>
+      </ng-template>
+
+      {{tab.content}}
+
+    </tab>
+
+  </tabset>
