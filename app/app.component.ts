@@ -13,7 +13,9 @@ export class AppComponent {
   tabsList = [
     { title: "Dynamic Title 1", content: "Dynamic content 1", active: true },
     { title: "Dynamic Title 2", content: "Dynamic content 2" },
-    { title: "Dynamic Title 3", content: "Dynamic content 3" }
+    { title: "Dynamic Title 3", content: "Dynamic content 3" },
+    { title: "Dynamic Title 4", content: "Dynamic content 4" },
+    { title: "Dynamic Title 5", content: "Dynamic content 5" }
   ];
 
   @ViewChild("someTabs") someTabs: TabsetComponent;
@@ -29,8 +31,8 @@ export class AppComponent {
 
   onDragEnd(event: DragEvent) {
     try {
-      let toIndex = this.previousTabId.split("_")[1];
-      let fromIndex = this.currentTabId.split("_")[1];
+      let toIndex = this.previousTabId;
+      let fromIndex = this.currentTabId;
       let tabListItems = this.tabsList;
       if (toIndex === undefined || fromIndex === undefined) { // executes when user doenst to a proper drag and drop
         alert("Please drag and drop / move tabs properly");
