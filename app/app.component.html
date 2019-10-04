@@ -3,7 +3,7 @@
 	Start editing to see some magic happen q :)
 </p>
 
-<tabset dndDropzone (dndDrop)="onDrop($event)" #someTabs>
+<tabset vertical="true" dndDropzone  (dndDragover)="onDragover($event)" (dndDrop)="onDrop($event)" #someTabs>
 	<tab *ngFor="let tab of tabsList;let index=index;">
 
 		<ng-template tabHeading>

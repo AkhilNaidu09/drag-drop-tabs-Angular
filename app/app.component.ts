@@ -61,12 +61,18 @@ export class AppComponent {
 
    onDraggableMoved(event: DragEvent) {
     this.currentTabId = event.target["id"].split("_")[1];
-    console.log("draggable moved");
+    console.log("draggable moved",this.currentTabId);
   }
 
   onDrop(event: DragEvent) {
-    this.previousTabId = event['event'].target["id"].split("_")[1];
+   // this.previousTabId = event['event'].target["id"].split("_")[1];
     
     console.log("dragover");
+  }
+
+  onDragover(event){
+   // console.clear();
+    this.previousTabId = event.target.id.split("_")[1];
+
   }
 }
