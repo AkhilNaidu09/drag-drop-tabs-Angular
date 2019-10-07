@@ -3,11 +3,13 @@
 	Start editing to see some magic happen q :)
 </p>
 
-<tabset vertical="true" dndDropzone  (dndDragover)="onDragover($event)" (dndDrop)="onDrop($event)" #someTabs>
+<tabset vertical="true" dndDropzone (dndDrop)="onDrop($event)" #someTabs>
 	<tab *ngFor="let tab of tabsList;let index=index;">
 
 		<ng-template tabHeading>
-			<div id="tabIndex_{{index}}" [dndDraggable]="draggable.data" [dndEffectAllowed]="draggable.effectAllowed" [dndDisableIf]="index == 0"
+			<div id="tabIndex_{{index}}"
+      (dndStart)="onDragStart($event)"
+       [dndDraggable]="draggable.data" [dndEffectAllowed]="draggable.effectAllowed" [dndDisableIf]="index == 0"
       (dndCanceled)="onDraggableCancel($event);"
 			 (dndMoved)="onDraggableMoved($event,index)" (dndEnd)="onDragEnd($event)">
 

@@ -31,8 +31,8 @@ export class AppComponent {
 
   onDragEnd(event: DragEvent) {
     try {
-      let toIndex = this.previousTabId;
-      let fromIndex = this.currentTabId;
+      let toIndex = this.currentTabId;
+      let fromIndex = this.previousTabId;
       let tabListItems = this.tabsList;
       if (toIndex === undefined || fromIndex === undefined) { // executes when user doenst to a proper drag and drop
         alert("Please drag and drop / move tabs properly");
@@ -60,19 +60,17 @@ export class AppComponent {
   }
 
    onDraggableMoved(event: DragEvent) {
-    this.currentTabId = event.target["id"].split("_")[1];
-    console.log("draggable moved",this.currentTabId);
+  
   }
 
-  onDrop(event: DragEvent) {
-   // this.previousTabId = event['event'].target["id"].split("_")[1];
-    
+  onDragStart(event: DragEvent){
+      this.previousTabId = event.target["id"].split("_")[1];
+
+  }
+
+  onDrop(event) {
+    this.currentTabId = event.event.target["id"].split("_")[1];
     console.log("dragover");
   }
 
-  onDragover(event){
-   // console.clear();
-    this.previousTabId = event.target.id.split("_")[1];
-
-  }
 }
